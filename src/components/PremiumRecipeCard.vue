@@ -29,6 +29,7 @@
             <span class="item-meta-text">{{ energyValue }}</span>
           </div>
         </div>
+        <Nutrients :units="units" :nutrients="nutrients" />
       </div>
     </div>
   </div>
@@ -38,12 +39,14 @@
 import Heart from "./subComponents/Heart.vue";
 import StarRating from "./subComponents/StartRating.vue";
 import { formatMinutesToHourString } from "../utils/time";
+import Nutrients from "./subComponents/Nutrients.vue";
 
 export default {
   name: "PremiumRecipeCard",
   components: {
     Heart,
     StarRating,
+    Nutrients,
   },
   props: {
     title: String,

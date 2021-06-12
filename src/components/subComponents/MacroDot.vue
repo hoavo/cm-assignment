@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <span class="macro-dot" :style="{ 'background-color': color }"></span
-    ><span class="macro-dot-text">{{ text }}</span>
+    ><span class="macro-dot-text">{{ text || "" }}</span>
   </div>
 </template>
 

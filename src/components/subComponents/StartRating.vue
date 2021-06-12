@@ -47,7 +47,7 @@
     </span>
     <span
       class="star-white"
-      v-for="index in 5 - Math.round(score)"
+      v-for="index in 5 -  Math.min(Math.max(Math.round(score), 0), 5)"
       :key="'star-white' + index"
     >
       <svg

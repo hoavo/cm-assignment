@@ -3,14 +3,17 @@
     <MacroDot
       class="mr"
       :color="'#F94642'"
-      :text="`${nutrients.carbs} ${units.carbs}`"
+      :text="`${nutrients.carbs} ${units.carbs || ''}`"
     />
     <MacroDot
       class="mr"
       :color="'#3177BB'"
-      :text="`${nutrients.proteins} ${units.proteins}`"
+      :text="`${nutrients.proteins} ${units.proteins || ''}`"
     />
-    <MacroDot :color="'#FDA120'" :text="`${nutrients.fats} ${units.fats}`" />
+    <MacroDot
+      :color="'#FDA120'"
+      :text="`${nutrients.fats} ${units.fats || ''}`"
+    />
   </div>
 </template>
 

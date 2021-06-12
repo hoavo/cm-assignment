@@ -6,9 +6,21 @@
       </div>
       <h2>Carb Manager Dev Assignment</h2>
       <p>See the README file for assignment requirements.</p>
-
       <div class="premium-recipe-wrapper">
-        <PremiumRecipeCard />
+        <div v-for="recipe in recipes" :key="recipe.id">
+          <PremiumRecipeCard
+            :title="recipe.title"
+            :image="recipe.image"
+            :isPremium="recipe.isPremium"
+            :ratingScore="recipe.rating.score"
+            :ratingCount="recipe.rating.count"
+            :time="recipe.preparationTimeMinutes"
+            :energy="recipe.energy"
+            :energyUnit="recipe.units.energy"
+            :units="recipe.units"
+            :nutrients="recipe.nutrients"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -66,14 +78,14 @@ export default {
 }
 
 .cm-container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: auto;
 }
 
-/** Remove these styles when done */
 .premium-recipe-wrapper {
-  margin-top: 100px;
-  border: 2px dashed red;
-  padding: 16px;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 0 50%;
+  text-align: left;
 }
 </style>

@@ -16,12 +16,31 @@
 
 <script>
 import PremiumRecipeCard from "./components/PremiumRecipeCard.vue";
+import ApiService from "@/common/api.service";
 
 export default {
   name: "App",
   components: {
-    PremiumRecipeCard
-  }
+    PremiumRecipeCard,
+  },
+  data() {
+    return {
+      recipes: [],
+    };
+  },
+  created() {
+    this.getRecipes();
+  },
+  methods: {
+    async getRecipes() {
+      try {
+        const response = await ApiService.get("/recipe");
+        this.recipes = response.data;
+      } catch (error) {
+        console.info("error", error);
+      }
+    },
+  },
 };
 </script>
 

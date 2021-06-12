@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container" @click="$emit('click')">
+  <div class="card-container">
     <div class="card-body" :style="{ backgroundImage: 'url(' + image + ')' }">
       <h3 class="card-title-top">RECIPE OF THE DAY</h3>
       <h4 class="card-title truncate">{{ title }}</h4>
@@ -11,7 +11,7 @@
       </div>
       <div class="card-footer">
         <Nutrients :units="units" :nutrients="nutrients" />
-        <div class="btn">
+        <div class="btn" @click="$emit('click')">
           <div class="btn-text">Learn More</div>
         </div>
       </div>

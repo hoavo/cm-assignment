@@ -4,6 +4,7 @@
       class="card-thumbnail"
       :style="{ backgroundImage: 'url(' + image + ')' }"
     >
+      <div class="image-overlay"></div>
       <div class="favorite"><Heart :active="isFavorite" /></div>
       <div class="premium-badge" v-if="isPremium">
         <img alt="Premium Recipe" src="../assets/icons/trophy.svg" /> Premium
@@ -91,7 +92,37 @@ export default {
   box-shadow: 0px 13px 35px rgba(0, 30, 47, 0.1);
   border-radius: 12px;
   overflow: hidden;
-  margin: 20px;
+  cursor: pointer;
+}
+.image-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    rgba(22, 27, 35, 0.2) 70.94%,
+    rgba(26, 29, 34, 0.79) 106.25%
+  );
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.card-container .image-overlay:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: background 80ms linear;
+  background: rgba(255, 255, 255, 0);
+}
+
+.card-container:hover .image-overlay:after {
+  background: rgba(255, 255, 255, 0.2);
 }
 .card-body {
   padding: 8px 16px 16px;
@@ -176,5 +207,12 @@ export default {
 .card-footer {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-container {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 </style>

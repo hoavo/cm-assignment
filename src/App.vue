@@ -88,4 +88,7 @@ export default {
   flex: 1 0 50%;
   text-align: left;
 }
+ .premium-recipe-wrapper > div{
+    margin: 20px;
+  }
 </style>

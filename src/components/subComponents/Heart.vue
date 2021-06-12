@@ -2,6 +2,7 @@
   <div>
     <svg
       v-if="!active"
+      class="heart"
       width="25"
       height="22"
       viewBox="0 0 25 22"
@@ -15,9 +16,9 @@
         stroke-miterlimit="10"
       />
     </svg>
-
     <svg
       v-if="active"
+      class="heart-active"
       width="23"
       height="20"
       viewBox="0 0 23 20"

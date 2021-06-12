@@ -7,6 +7,18 @@
       <h2>Carb Manager Dev Assignment</h2>
       <p>See the README file for assignment requirements.</p>
       <div class="premium-recipe-wrapper">
+        <div>
+          <RecipeOfTheDayCard
+            :title="'Keto Italian Beef With Cabbage Noodles'"
+            :image="'https://images.carbmanager.com/iYKrSEf7P6EAGx3desxGmcPJTVea2lJoBiXom24tevA/resize:fit:535/L2Fzc2V0cy5jYXJibWFuYWdlci5jb20vby91c2VyJTJGNGdkMlJoRVpqM2NGR1NKWDVuYjhFQzROWjBEMiUyRmltYWdlcyUyRmJiNmExNjY4LTU1NDMtNGE3Ny1hMDQ0LWQ0ODVhM2U0ZDMwNS5qcGc_YWx0PW1lZGlh'"
+            :ratingScore="5"
+            :time="8"
+            :energy="269"
+            :energyUnit="'kcal'"
+            :nutrients="{ carbs: 16, fats: 6, proteins: 20 }"
+            :units="{ carbs: 'g', fats: 'g', proteins: 'g' }"
+          />
+        </div>
         <div v-for="recipe in recipes" :key="recipe.id">
           <PremiumRecipeCard
             :title="recipe.title"
@@ -28,12 +40,14 @@
 
 <script>
 import PremiumRecipeCard from "./components/PremiumRecipeCard.vue";
+import RecipeOfTheDayCard from "./components/RecipeOfTheDayCard.vue";
 import ApiService from "@/common/api.service";
 
 export default {
   name: "App",
   components: {
     PremiumRecipeCard,
+    RecipeOfTheDayCard,
   },
   data() {
     return {
@@ -88,7 +102,7 @@ export default {
   flex: 1 0 50%;
   text-align: left;
 }
- .premium-recipe-wrapper > div{
-    margin: 20px;
-  }
+.premium-recipe-wrapper > div {
+  margin: 20px;
+}
 </style>

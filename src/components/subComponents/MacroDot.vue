@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .macro-dot {
   width: 6px;
   height: 6px;

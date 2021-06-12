@@ -29,7 +29,7 @@
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect width="24" height="24" fill="white" />
+        <rect width="24" height="24" />
         <path
           opacity="0.5"
           fill-rule="evenodd"
@@ -47,7 +47,7 @@
     </span>
     <span
       class="star-white"
-      v-for="index in 5 -  Math.min(Math.max(Math.round(score), 0), 5)"
+      v-for="index in 5 - Math.min(Math.max(Math.round(score), 0), 5)"
       :key="'star-white' + index"
     >
       <svg

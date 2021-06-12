@@ -12,6 +12,7 @@ describe("PremiumRecipeCard.vue", () => {
       isPremium: true,
       time: 100,
       energy: 320,
+      energyUnit: "calorie",
       ratingScore: 3.2,
       ratingCount: 221,
       nutrients: {
@@ -35,7 +36,38 @@ describe("PremiumRecipeCard.vue", () => {
     expect(wrapper.contains(".premium-badge")).toBe(true);
   });
 
-  it("show a favorite ", () => {
+  it("is show a favorite ", () => {
     expect(wrapper.contains(".favorite")).toBe(true);
+  });
+  it("is show correct times ", () => {
+    expect(
+      wrapper
+        .findAll(".item-meta-text")
+        .at(0)
+        .text()
+    ).toBe("1 hr 40 min");
+  });
+
+  it("is show correct energy in calorie ", () => {
+    expect(
+      wrapper
+        .findAll(".item-meta-text")
+        .at(1)
+        .text()
+    ).toBe("320 Calories");
+  });
+  it("is show correct energy in kJ ", () => {
+    const wrapper = shallowMount(PremiumRecipeCard, {
+      propsData: {
+        energy: 320,
+        energyUnit: "kJ",
+      },
+    });
+    expect(
+      wrapper
+        .findAll(".item-meta-text")
+        .at(1)
+        .text()
+    ).toBe("1339 kJ");
   });
 });

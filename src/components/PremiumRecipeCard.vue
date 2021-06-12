@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container">
+  <div class="card-container" @click="$emit('click')">
     <div
       class="card-thumbnail"
       :style="{ backgroundImage: 'url(' + image + ')' }"
